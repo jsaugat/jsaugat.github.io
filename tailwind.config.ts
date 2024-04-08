@@ -19,8 +19,10 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-geist-sans)"],
-        mono: ["var(--font-geist-mono)"],
+        geist: ["var(--font-geist-sans)"],
+        geistMono: ["var(--font-geist-mono)"],
+        neueHaas: ["Neue Haas Grotesk Display Pro", "sans-serif"],
+        neueRegrade: ["Neue Regrade", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

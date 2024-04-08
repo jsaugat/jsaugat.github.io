@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useRef } from "react";
 import DownRight from "@/assets/DownRight";
@@ -15,19 +15,19 @@ export default function Home() {
     <main>
       <section
         ref={hero}
-        className="home relative flex justify-center rounded-[5rem] border border-ghost w-full h-[85vh] font-montreal overflow-hidden"
+        className="home relative flex justify-center rounded-[3rem] border border-ghost w-full h-[85vh] font-montreal overflow-hidden"
       >
         {/* absolute BOX */}
         {/* <div className="absolute top-[30%] border-ghost border-y w-full h-[10rem]"></div> */}
 
         {/* HERO HEADERS */}
-        <main className="relative h-fit text-center top-[12vh] text-[10rem] text-antiFlash font-neueRegrade font-semibold leading-[10rem] tracking-tighter cursor-crosshair select-none flex flex-col items-center w-full">
+        <main className="relative h-fit text-center top-[12vh] text-[6rem] text-antiFlash font-neueRegrade font-semibold leading-[10rem] tracking-tighter cursor-crosshair select-none flex flex-col items-center w-full">
           <InnovativeSection />
           <FullstackSection />
           <DeveloperSection />
         </main>
         {/*  */}
-        <div className="down-right absolute inline-flex items-center justify-center bottom-[12%] w-[9rem] h-[9rem] rounded-full border border-white">
+        <div className="down-right absolute inline-flex items-center justify-center bottom-[12%] size-[6rem] rounded-full border border-white">
           <DownRight className="" />
         </div>
       </section>
@@ -39,8 +39,8 @@ export default function Home() {
 function InnovativeSection() {
   return (
     <section className="flex w-full">
-      <aside className="flex-auto" />
-      <section className="innovativeDiv relative leading-[0.9] overflow-hidden h-[10rem] w-[64rem] flex flex-col  justify-start pt-4">
+      <aside className="flex-1" />
+      <section className="innovativeDiv relative leading-[0.9] overflow-hidden h-[6rem] w-[40rem] flex flex-col  justify-start pt-4">
         <div className="flex innovativeUpperDiv -space-x-[0.1rem]">
           <span>I</span>
           <span>N</span>
@@ -66,24 +66,27 @@ function InnovativeSection() {
           <span>E</span>
         </div>
       </section>
-      <aside className="flex-auto" />
+      <aside className="flex-1" />
     </section>
   );
 }
 function FullstackSection() {
   return (
-    <section className="relative top-[30%] border-ghost border-y h-[10rem] left-0 flex justify-center w-full">
-      <aside className="flex-auto flex items-center justify-start pl-[4vw]">
+    //? the bordered box
+    <section className="relative border border-y left-0 flex justify-center w-full">
+      <aside className="flex-1 flex items-center justify-center">
         {/* PROJECTS button */}
         <Button
-          variant="outline"
-          className="projects-btn flex justify-between px-4 pr-6 gap-4 border border-onyx overflow-hidden"
+          variant="secondary"
+          className="projects-btn flex justify-center gap-4 py-7 overflow-hidden rounded-full text-base"
         >
           <DownArrowBall className="projects-btn-ball" />
-            <p className="projects-btn-text text-[1.5rem] font-medium font-montreal">PROJECTS</p>
+          <p className="projects-btn-text font-medium font-neueHaas tracking-normal">
+            PROJECTS
+          </p>
         </Button>
       </aside>
-      <section className="fullstackDiv relative pt-4 pr-5 leading-[0.9] overflow-hidden h-[10rem] w-[64rem] justify-start items-end flex flex-col">
+      <main className="fullstackDiv relative pt-4 pr-5 leading-[0.9] overflow-hidden h-[6rem] w-[40rem] justify-start items-end flex flex-col">
         <div className="fullstackUpperDiv flex -space-x-[0.1rem]">
           <span>F</span>
           <span>U</span>
@@ -106,17 +109,18 @@ function FullstackSection() {
           <span>C</span>
           <span>K</span>
         </div>
-        {/* <h1 className="headers fullstack text-right">FULLSTACK</h1> */}
-      </section>
-      <aside className="flex-auto" />
+      </main>
+      <aside className="flex-1" />
     </section>
   );
 }
 function DeveloperSection() {
   return (
     <main className="flex w-full">
-      <aside className="flex-auto" />
-      <section className="developerDiv relative leading-[0.9] overflow-hidden h-[10rem] w-[64rem] flex flex-col  justify-start pt-4">
+      {/* //? side box */}
+      <aside className="flex-1" />
+      {/* //? main part */}
+      <section className="developerDiv relative leading-[0.9] overflow-hidden h-[6rem] w-[40rem] flex flex-col  justify-start pt-4">
         <div className="developerUpperDiv flex -space-x-[0.1rem]">
           <span>D</span>
           <span>E</span>
@@ -140,8 +144,9 @@ function DeveloperSection() {
           <span>R</span>
         </div>
       </section>
-      <aside className="relative flex-auto flex items-center text-left">
-        <div className="description absolute -left-40 text-[1.9rem] leading-9 tracking-normal font-montreal font-medium flex flex-col">
+      {/* //? side box */}
+      <aside className="relative text-left flex items-center flex-1">
+        <section className="description absolute -left-32 text-lg font-neueHaas font-medium leading-tight tracking-normal flex flex-col">
           {/* lines animate-in from 'y: 30' */}
           <div className="overflow-hidden">
             <p className="description-1">
@@ -156,7 +161,7 @@ function DeveloperSection() {
               drive success in fullstack development.
             </p>
           </div>
-        </div>
+        </section>
       </aside>
     </main>
   );

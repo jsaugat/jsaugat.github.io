@@ -1,11 +1,14 @@
-@import url("https://fonts.cdnfonts.com/css/trial-riegla");
-@import url("https://fonts.cdnfonts.com/css/pp-neue-montreal");
-@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
-@import url('https://fonts.cdnfonts.com/css/darbots-2');
+@import url('https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro');              
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  /* letter-spacing: 1px; */
+}
+
 
 @layer base {
   :root {
@@ -78,4 +81,27 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* SCROLLBAR */
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1c1c1c;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

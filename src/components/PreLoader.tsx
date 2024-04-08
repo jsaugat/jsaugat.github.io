@@ -1,11 +1,12 @@
 "use client"
 
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 function PreLoader({ numberOfBlinders = 6 }) {
     //? useLayoutEffect = sync useEffect
-  useLayoutEffect(() => {
+  useGSAP(() => {
     gsap.to(".blinder", {
       scaleY: 0,
       stagger: 0.1,
