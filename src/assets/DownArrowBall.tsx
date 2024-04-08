@@ -1,6 +1,10 @@
 import React from "react";
 
-const DownArrowBall = ({ className }) => {
+interface DownArrowBallProps {
+  className: string;
+}
+
+const DownArrowBall: React.FC<DownArrowBallProps> = ({ className }) => {
   return (
     <svg
       width="35"

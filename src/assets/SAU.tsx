@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import React from "react";
 
-const SAU = ({ className }) => {
+const SAU: React.FC<{ className: string }> = ({ className }) => {
   useGSAP(() => {
     gsap.from("#letterS path, #letterA path, #letterU path", {
       x: 150,

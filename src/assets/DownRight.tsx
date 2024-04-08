@@ -2,7 +2,11 @@ import React from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-const DownRight = ({ className }) => {
+interface DownRightProps {
+  className: string;
+}
+
+const DownRight: React.FC<DownRightProps> = ({ className }) => {
   useGSAP(() => {
     gsap.from("#arrow", {
       rotation: -40,
