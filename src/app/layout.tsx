@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Inter } from "next/font/google";
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 import "@/styles/globals.css";
 import PreLoader from "@/components/PreLoader";
 import Container from "@/components/Container";
 import Navbar from "@/components/Navbar";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "SaU",
@@ -19,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={inter.className}>
+    <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -29,7 +28,7 @@ export default function RootLayout({
         >
           <PreLoader />
           <Container>
-            <main className="app dark relative h-screen w-full text-base">
+            <main className="app dark relative h-screen w-full text-base text-sans">
               <Navbar />
               {children}
             </main>
