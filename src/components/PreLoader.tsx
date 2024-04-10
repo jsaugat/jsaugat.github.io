@@ -21,7 +21,7 @@ function PreLoader({ numberOfBlinders = 6 }) {
   ));
 
   return (
-    <div className="blinder-container absolute z-50 h-screen w-full text-black flex gap-0 pointer-events-none">
+    <div className="blinder-container absolute z-50 h-full w-full text-black flex gap-0 pointer-events-none">
       {blinders}
     </div>
   );

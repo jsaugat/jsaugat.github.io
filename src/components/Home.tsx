@@ -73,7 +73,7 @@ function InnovativeSection() {
 function FullstackSection() {
   return (
     //? the bordered box
-    <section className="relative border border-y left-0 flex justify-center w-full">
+    <section className="relative border-y left-0 flex justify-center w-full">
       <aside className="flex-1 flex items-center justify-center">
         {/* PROJECTS button */}
         <Button

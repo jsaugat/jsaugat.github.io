@@ -8,58 +8,23 @@ const Intro = () => {
     <main className="h-[90vh] grid place-items-center">
       <section className="relative flex gap-[5vw] h-[50vh]">
         {/* left */}
-        <div className="text-[6rem] leading-none font-montreal">
+        <div className="text-7xl leading-none font-montreal">
           Transforming your
           <br /> digital dreams into
           <br />{" "}
-          <span className="flex items-center gap-6">
-            reality.{" "}
-            <span className="inline-flex h-[4.5rem] w-[12rem] bg-gradient-to-r from-cardBlack to-onyx rounded-full items-center justify-around border-2 border-onyx">
+          <div className="flex items-center gap-4">
+            <span>reality.</span>
+            <div className="inline-flex mt-2 h-[3.5rem] w-[9rem] bg-gradient-to-r from-transparent to-muted rounded-full items-center justify-around border-2 border-onyx">
               {/* two stars */}
-              <svg
-                width="41"
-                height="41"
-                viewBox="0 0 31 31"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M23.0332 30.4375C15.6191 16.497 15.0835 16.3182 0.357833 22.7881C14.6564 15.451 14.8425 14.926 8.31757 0.56244C15.7317 14.503 16.2673 14.6818 30.993 8.21184C16.6955 15.5512 16.5062 16.0696 23.0332 30.4375Z"
-                  fill="white"
-                />
-              </svg>
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 34 35"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <mask
-                  id="mask0_447_304"
-                  style={{ maskType: "luminance" }}
-                  maskUnits="userSpaceOnUse"
-                  x="0"
-                  y="0"
-                  width="34"
-                  height="35"
-                >
-                  <path d="M34 0.88623H0V34.1135H34V0.88623Z" fill="white" />
-                </mask>
-                <g mask="url(#mask0_447_304)">
-                  <path
-                    d="M17 34.1135C16.5078 18.3741 16.1055 17.9833 0 17.4999C16.1055 17.0189 16.5054 16.6257 17 0.88623C17.4921 16.6257 17.8945 17.0165 34 17.4999C17.8945 17.9833 17.4947 18.3693 17 34.1135Z"
-                    fill="white"
-                  />
-                </g>
-              </svg>
-            </span>
-          </span>
+              <LeftStar />
+              <RightStar />
+            </div>
+          </div>
         </div>
         {/* right */}
         <div className="relative top-[46%] h-fit">
-          <p className="uppercase text-neutral-500 mb-4">(about this man)</p>
-          <h3 className="uppercase text-[2.5rem] leading-tight">
+          <p className="uppercase text-neutral-500 mb-4">(about this guy)</p>
+          <h3 className="uppercase text-2xl leading-tight">
             I’m a 22 Y.O. CS STUDENT, Persistently
             <br /> upgrading my skill set. hit me up for
             <br /> interesting projects and discussion.
@@ -73,5 +38,46 @@ const Intro = () => {
     </main>
   );
 };
+const LeftStar = () => (
+  <svg
+    width="45"
+    height="45"
+    viewBox="0 0 31 31"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M23.0332 30.4375C15.6191 16.497 15.0835 16.3182 0.357833 22.7881C14.6564 15.451 14.8425 14.926 8.31757 0.56244C15.7317 14.503 16.2673 14.6818 30.993 8.21184C16.6955 15.5512 16.5062 16.0696 23.0332 30.4375Z"
+      fill="white"
+    />
+  </svg>
+);
+const RightStar = () => (
+  <svg
+    width="43"
+    height="43"
+    viewBox="0 0 34 35"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <mask
+      id="mask0_447_304"
+      style={{ maskType: "luminance" }}
+      maskUnits="userSpaceOnUse"
+      x="0"
+      y="0"
+      width="34"
+      height="35"
+    >
+      <path d="M34 0.88623H0V34.1135H34V0.88623Z" fill="white" />
+    </mask>
+    <g mask="url(#mask0_447_304)">
+      <path
+        d="M17 34.1135C16.5078 18.3741 16.1055 17.9833 0 17.4999C16.1055 17.0189 16.5054 16.6257 17 0.88623C17.4921 16.6257 17.8945 17.0165 34 17.4999C17.8945 17.9833 17.4947 18.3693 17 34.1135Z"
+        fill="white"
+      />
+    </g>
+  </svg>
+);
 
 export default Intro;
