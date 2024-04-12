@@ -77,8 +77,8 @@ function FullstackSection() {
       <aside className="flex-1 flex items-center justify-center">
         {/* PROJECTS button */}
         <Button
-          variant="secondary"
-          className="projects-btn flex justify-center gap-4 py-7 overflow-hidden rounded-full text-base"
+          variant="outline"
+          className="projects-btn flex justify-center gap-4 overflow-hidden rounded-full text-base"
         >
           <DownArrowBall className="projects-btn-ball" />
           <p className="projects-btn-text font-medium font-neueHaas tracking-normal">
@@ -201,7 +201,7 @@ function homeAnimation() {
       delay: (i) => 0 + i * 0.04,
       ease: "power1.out",
     },
-    "0.2"
+    "0.5"
   )
     .to(
       innovativeLower,
@@ -219,7 +219,7 @@ function homeAnimation() {
         delay: (i) => 0 + i * 0.04,
         ease: "power1.out",
       },
-      "<0.2"
+      "<0.3"
     )
     .to(
       fullstackLower,
@@ -256,16 +256,17 @@ function homeAnimation() {
         duration: 1,
         ease: "power4.out",
       },
-      "<0.1"
+      "<0.3"
     )
+    // the descriptions next to "DEVELOPER"
     .from(
-      ".description .description-1, .description-2, .description-3",
+      ".description-1, .description-2, .description-3",
       {
         opacity: 0,
         y: 34,
         duration: 1.3,
         ease: "power4.out",
       },
-      "<"
+      "<0.6"
     );
 }

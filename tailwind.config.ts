@@ -23,6 +23,7 @@ const config = {
         geistMono: ["var(--font-geist-mono)"],
         neueHaas: ["Neue Haas Grotesk Display Pro", "sans-serif"],
         neueRegrade: ["Neue Regrade", "sans-serif"],
+        jetBrains: ["JetBrains Mono", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

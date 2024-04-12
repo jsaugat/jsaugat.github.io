@@ -30,7 +30,7 @@ const Intro = () => {
             <br /> interesting projects and discussion.
           </h3>
           <Button variant="outline" className="about-btn mt-8 flex gap-5">
-            <span className="">ABOUT ME</span>
+            <span className="">About Me</span>
             <RightArrow className="right-arrow" />
           </Button>
         </div>

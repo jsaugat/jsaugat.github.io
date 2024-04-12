@@ -5,7 +5,7 @@ import { GeistMono } from "geist/font/mono";
 import "@/styles/globals.css";
 import PreLoader from "@/components/PreLoader";
 import Container from "@/components/Container";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar/Navbar";
 import "@/styles/App.scss";
 
 export const metadata: Metadata = {
@@ -24,6 +24,12 @@ export default function RootLayout({
       className="dark"
       // className={`dark ${GeistSans.variable} ${GeistMono.variable}`}
     >
+      <head>
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap')
+        </style>
+      </head>
       <body>
         <ThemeProvider
           attribute="class"

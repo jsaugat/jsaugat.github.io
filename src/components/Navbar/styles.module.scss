@@ -1,0 +1,26 @@
+.menuIcon {
+  div {
+    transition: width 0.3s ease-out;
+  }
+  &:hover {
+    transform-origin: right;
+    
+    div:nth-child(1) {
+      width: 1.7rem;
+    }
+    div:nth-child(2) {
+      width: 0.8rem;
+    }
+  }
+}
+
+.close-icon {
+  flex: 2;
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+}
+
+.menuItems {
+  font-size: 20rem;
+}
