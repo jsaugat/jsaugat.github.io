@@ -29,6 +29,15 @@ const Navbar = () => {
       ease: "power4.out",
     });
   });
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.from(".overlay", {
+      y: 20,
+      opacity: 0,
+      duration: 1,
+      ease: "power4.out"
+    })
+  })
 
   // Toggle Menu
   const toggleMenu = () => {
@@ -65,10 +74,12 @@ const Navbar = () => {
         {/* time */}
         {/* <div className="border rounded-full px-3 py-2">{formattedTime}</div> */}
         <div className="flex items-center gap-2">
-          MENU
+          <h3 onClick={toggleMenu} className="cursor-pointer">
+            MENU
+          </h3>
           <button
             onClick={toggleMenu}
-            className={`${styles.menuIcon} h-10 w-fit p-2 flex items-center justify-center rounded-full`}
+            className={`${styles.menuIcon} h-10 w-14 p-2 flex items-center justify-center rounded-full`}
           >
             <figure className="flex flex-col justify-center items-start gap-1 size-full">
               <div className="w-10 h-[0.1rem] bg-white"></div>
@@ -89,11 +100,16 @@ interface OverlayProps {
 
 // OVERLAY
 const Overlay: React.FC<OverlayProps> = ({ toggleMenu }) => {
+  const socialLinks = [
+    { href: "https://twitter.com/jsaugat_", media: "Twitter" },
+    { href: "https://www.instagram.com/pyxelpainter", media: "Instagram" },
+    { href: "https://www.linkedin.com/in/jsaugat", media: "LinkedIn" },
+  ];
   return (
-    <nav className="fixed top-0 right-0 h-[50vh] m-5 p-8 z-10 rounded-2xl text-black bg-[#C0FB50] flex flex-col justify-between ">
+    <nav className="overlay fixed top-0 right-0 h-[94vh] m-5 p-8 z-10 rounded-[2rem] text-black bg-grin backdrop-blur-md flex flex-col justify-between ">
       <div>
         <section className="overlay-bar flex justify-between">
-          <h1 className="text-3xl font-medium">SaU</h1>
+          <h1 className="text-3xl font-medium"></h1>
           <div
             onClick={toggleMenu}
             className="close-icon text-xl font-medium cursor-pointer"
@@ -126,21 +142,22 @@ const Overlay: React.FC<OverlayProps> = ({ toggleMenu }) => {
         </ul>
       </div>
       {/* INFO SECTION */}
-      <section className="menu-info w-full flex justify-between">
+      <section className="menu-info w-full flex flex-col gap-3">
         <div className="menu-info-col font-jetBrains text-sm uppercase flex items-center gap-2">
-          <Link href="" className="border p-3 py-1 rounded-full">
-            Twitter
-          </Link>
-          <i>/</i>
-          <Link href="" className="border p-3 py-1 rounded-full">
-            LinkedIn
-          </Link>
-          <i>/</i>
-          <Link href="" className="border p-3 py-1 rounded-full">
-            Dribbble
-          </Link>
+          {socialLinks.map(({ href, media }, idx) => (
+            <div className="p-3 py-1 rounded-full bg-black/10 flex items-center gap-5" >
+              <p>{idx+1}.0</p>
+              <Link
+                key={idx}
+                href={href}
+                target="_blank"
+              >
+                {media}
+              </Link>
+            </div>
+          ))}
         </div>
-        <div className="menu-info-col">
+        <div className="menu-info-col font-medium font-jetBrains">
           <p>jsaugatt02.dev@gmail.com</p>
           <p>+977 9803343112</p>
         </div>
