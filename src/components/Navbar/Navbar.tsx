@@ -8,17 +8,16 @@ import SAU from "@/assets/SAU";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 // css
-import styles from "./styles.module.scss";
+import style from "./style.module.scss";
 
 const menuLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "projects", label: "Projects" },
+  { href: "/projects", label: "Projects" },
 ];
 
 const Navbar = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  // const pathname = usePathname();
   useGSAP(() => {
     const tl = gsap.timeline();
     tl.from(".navbar", {
@@ -77,9 +76,10 @@ const Navbar = () => {
           <h3 onClick={toggleMenu} className="cursor-pointer">
             MENU
           </h3>
+          {/* Hamburger */}
           <button
             onClick={toggleMenu}
-            className={`${styles.menuIcon} h-10 w-14 p-2 flex items-center justify-center rounded-full`}
+            className={`${style.menuIcon} h-10 w-14 p-2 flex items-center justify-center rounded-full`}
           >
             <figure className="flex flex-col justify-center items-start gap-1 size-full">
               <div className="w-10 h-[0.1rem] bg-white"></div>
@@ -105,8 +105,9 @@ const Overlay: React.FC<OverlayProps> = ({ toggleMenu }) => {
     { href: "https://www.instagram.com/pyxelpainter", media: "Instagram" },
     { href: "https://www.linkedin.com/in/jsaugat", media: "LinkedIn" },
   ];
+  const pathname = usePathname();
   return (
-    <nav className="overlay fixed top-0 right-0 h-[94vh] m-5 p-8 z-10 rounded-[2rem] text-black bg-grin backdrop-blur-md flex flex-col justify-between ">
+    <nav className="overlay fixed top-0 right-0 h-[94vh] m-5 p-8 z-10 rounded-lg text-white border border-white bg-black/30 backdrop-blur-md flex flex-col justify-between ">
       <div>
         <section className="overlay-bar flex justify-between">
           <h1 className="text-3xl font-medium"></h1>
@@ -120,18 +121,19 @@ const Overlay: React.FC<OverlayProps> = ({ toggleMenu }) => {
         {/* NAV SECTION */}
         <ul
           className={
-            styles.menuItems +
-            "relative left-10 text-left flex flex-col gap-1 items-center justify-start"
+            style.menuItems +
+            "relative left-10 text-left flex flex-col gap-1 items-start justify-start"
           }
         >
           <div className="bg-red-600/0">
             {menuLinks.map((link, idx) => (
-              <div className="menu-item">
+              <div className="menu-item mb-4">
                 <div className="menu-item-holder">
                   <Link
                     key={idx}
                     href={link.href}
-                    className="uppercase text-black text-5xl font-medium"
+                    // className="" 
+                    className={`uppercase text-5xl font-semibold px-3 rounded-md ${pathname === link.href ? 'bg-grin text-black' : ''}`}
                   >
                     {link.label}
                   </Link>
