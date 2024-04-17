@@ -34,9 +34,9 @@ const Navbar = () => {
       y: 20,
       opacity: 0,
       duration: 1,
-      ease: "power4.out"
-    })
-  })
+      ease: "power4.out",
+    });
+  });
 
   // Toggle Menu
   const toggleMenu = () => {
@@ -107,7 +107,7 @@ const Overlay: React.FC<OverlayProps> = ({ toggleMenu }) => {
   ];
   const pathname = usePathname();
   return (
-    <nav className="overlay fixed top-0 right-0 h-[94vh] m-5 p-8 z-10 rounded-lg text-white border border-white bg-black/30 backdrop-blur-md flex flex-col justify-between ">
+    <nav className="overlay fixed top-0 right-0 h-[94vh] m-5 p-8 z-10 rounded-lg text-white border border-white/30 bg-black/30 backdrop-blur-md flex flex-col justify-between ">
       <div>
         <section className="overlay-bar flex justify-between">
           <h1 className="text-3xl font-medium"></h1>
@@ -127,13 +127,17 @@ const Overlay: React.FC<OverlayProps> = ({ toggleMenu }) => {
         >
           <div className="bg-red-600/0">
             {menuLinks.map((link, idx) => (
-              <div className="menu-item mb-4">
+              <div className="menu-item mb-5">
                 <div className="menu-item-holder">
                   <Link
                     key={idx}
                     href={link.href}
-                    // className="" 
-                    className={`uppercase text-5xl font-semibold px-3 rounded-md ${pathname === link.href ? 'bg-grin text-black' : ''}`}
+                    // className=""
+                    className={`font-neueRegrade font-bold text-5xl px-2 pt-2 rounded-md uppercase  ${
+                      pathname === link.href
+                        ? "bg-grin text-black hover:bg-grin"
+                        : "hover:bg-white hover:text-black"
+                    }`}
                   >
                     {link.label}
                   </Link>
@@ -145,21 +149,17 @@ const Overlay: React.FC<OverlayProps> = ({ toggleMenu }) => {
       </div>
       {/* INFO SECTION */}
       <section className="menu-info w-full flex flex-col gap-3">
-        <div className="menu-info-col font-jetBrains text-sm uppercase flex items-center gap-2">
+        <div className="menu-info-col font-jetBrains font-light text-sm uppercase flex items-center gap-2">
           {socialLinks.map(({ href, media }, idx) => (
-            <div className="p-3 py-1 rounded-full bg-black/10 flex items-center gap-5" >
-              <p>{idx+1}.0</p>
-              <Link
-                key={idx}
-                href={href}
-                target="_blank"
-              >
+            <div className="p-3 py-1 rounded-full bg-white/20 flex items-center gap-5">
+              <p>{idx + 1}.0</p>
+              <Link key={idx} href={href} target="_blank">
                 {media}
               </Link>
             </div>
           ))}
         </div>
-        <div className="menu-info-col font-medium font-jetBrains">
+        <div className="menu-info-col font-medium">
           <p>jsaugatt02.dev@gmail.com</p>
           <p>+977 9803343112</p>
         </div>
