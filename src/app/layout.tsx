@@ -24,12 +24,7 @@ export default function RootLayout({
       className="dark"
       // className={`dark ${GeistSans.variable} ${GeistMono.variable}`}
     >
-      <head>
-        <style>
-          @import
-          url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap')
-        </style>
-      </head>
+      <head></head>
       <body>
         <ThemeProvider
           attribute="class"
