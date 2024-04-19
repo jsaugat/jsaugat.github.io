@@ -107,65 +107,72 @@ const Overlay: React.FC<OverlayProps> = ({ toggleMenu }) => {
   ];
   const pathname = usePathname();
   return (
-    <nav className="overlay fixed top-0 right-0 h-[94vh] m-5 p-8 z-10 rounded-lg text-white border border-white/30 bg-black/30 backdrop-blur-md flex flex-col justify-between ">
-      <div>
-        <section className="overlay-bar flex justify-between">
-          <h1 className="text-3xl font-medium"></h1>
-          <div
-            onClick={toggleMenu}
-            className="close-icon text-xl font-medium cursor-pointer"
+    <nav className="overlay fixed top-4 right-3 h-[96vh] z-10 rounded-lg text-white border border-white/20 bg-neutral-800/20 backdrop-blur-lg flex">
+      <main className="p-8 flex flex-col justify-between">
+        <div>
+          {/* NAV SECTION */}
+          <ul
+            className={
+              style.menuItems +
+              "relative left-10 text-left flex flex-col gap-1 items-start justify-start"
+            }
           >
-            Close
-          </div>
-        </section>
-        {/* NAV SECTION */}
-        <ul
-          className={
-            style.menuItems +
-            "relative left-10 text-left flex flex-col gap-1 items-start justify-start"
-          }
-        >
-          <div className="bg-red-600/0">
-            {menuLinks.map((link, idx) => (
-              <div className="menu-item mb-5">
-                <div className="menu-item-holder">
-                  <Link
-                    key={idx}
-                    href={link.href}
-                    // className=""
-                    className={`font-neueRegrade font-bold text-5xl px-2 pt-2 rounded-md uppercase  ${
-                      pathname === link.href
-                        ? "bg-grin text-black hover:bg-grin"
-                        : "hover:bg-white hover:text-black"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
+            <div className="bg-red-600/0 pt-3">
+              {menuLinks.map((link, idx) => (
+                <div className="menu-item mb-5">
+                  <div className="menu-item-holder">
+                    <Link
+                      key={idx}
+                      href={link.href}
+                      // className=""
+                      className={`font-neueRegrade font-bold text-5xl px-2 pt-2 rounded-md uppercase  ${
+                        pathname === link.href
+                          ? "bg-grin text-black hover:bg-grin"
+                          : "hover:bg-white hover:text-black"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </div>
                 </div>
+              ))}
+            </div>
+          </ul>
+        </div>
+        {/* INFO SECTION */}
+        <section className="menu-info w-full flex flex-col gap-3">
+          <div className="menu-info-col font-jetBrains font-light text-sm uppercase flex items-center gap-2">
+            {socialLinks.map(({ href, media }, idx) => (
+              <div className="p-3 py-1 rounded-full bg-white/10 hover:bg-white/15 flex items-center gap-5">
+                <p>{idx + 1}.0</p>
+                <Link key={idx} href={href} target="_blank">
+                  {media}
+                </Link>
               </div>
             ))}
           </div>
-        </ul>
-      </div>
-      {/* INFO SECTION */}
-      <section className="menu-info w-full flex flex-col gap-3">
-        <div className="menu-info-col font-jetBrains font-light text-sm uppercase flex items-center gap-2">
-          {socialLinks.map(({ href, media }, idx) => (
-            <div className="p-3 py-1 rounded-full bg-white/20 flex items-center gap-5">
-              <p>{idx + 1}.0</p>
-              <Link key={idx} href={href} target="_blank">
-                {media}
-              </Link>
+          <div className="menu-info-col font-medium space-y-3">
+            <div className="border w-fit py-2 px-3 rounded-full border-white/20">
+              jsaugatt02.dev@gmail.com
             </div>
-          ))}
+            <div className="border w-fit py-2 px-3 rounded-full border-white/20">
+              +977 9803343112
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside className="border">
+        <div
+          onClick={toggleMenu}
+          className="close-icon m-4 size-8 text-xl font-medium cursor-pointer flex items-center justify-center rotate-0 hover:rotate-90 transition-all delay-1000 ease-out"
+        >
+          &#x2715;
         </div>
-        <div className="menu-info-col font-medium">
-          <p>jsaugatt02.dev@gmail.com</p>
-          <p>+977 9803343112</p>
-        </div>
-      </section>
+        <hr/>
+      </aside>
     </nav>
   );
 };
 
-export default Navbar;
+export default Navbar; 
