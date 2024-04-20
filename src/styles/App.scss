@@ -7,19 +7,19 @@ body {
   background: #dfdfdf;
   transform-origin: top;
 }
-// about button - Intro.jsx
-.about-btn{
+//? about button - Intro.jsx
+.about-btn {
   overflow: visible;
 }
 
 .right-arrow {
   transition: transform 0.3s ease-in-out;
 }
-.about-btn:hover > .right-arrow > .path{
+.about-btn:hover > .right-arrow > .path {
   transform: translateX(8px);
   color: black;
 }
-// projects button - Home.jsx
+//? projects button - Home.jsx
 .projects-btn-arrow {
   transition: all 0.3s ease-in-out;
   transform-origin: 50% 50%;

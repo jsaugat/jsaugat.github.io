@@ -15,7 +15,7 @@ export default function Home() {
     <main>
       <section
         ref={hero}
-        className="home relative flex justify-center rounded-[3rem] border border-ghost w-full h-[85vh] font-montreal overflow-hidden"
+        className="home relative flex justify-center rounded-[2rem] md:rounded-[3rem] border border-ghost w-full h-[85vh] font-montreal overflow-hidden"
       >
         {/* absolute BOX */}
         {/* <div className="absolute top-[30%] border-ghost border-y w-full h-[10rem]"></div> */}
@@ -37,33 +37,19 @@ export default function Home() {
 }
 
 function InnovativeSection() {
+  const innovative = "INNOVATIVE"
+    .split("")
+    .map((letter, i) => <span key={i}>{letter}</span>);
+
   return (
     <section className="flex w-full">
       <aside className="flex-1" />
-      <section className="innovativeDiv relative leading-[0.9] overflow-hidden h-[6rem] w-[40rem] flex flex-col  justify-start pt-4">
+      <section className="innovativeDiv relative leading-[0.9] overflow-hidden h-[6rem] w-[40rem] flex flex-col justify-start pt-4">
         <div className="flex innovativeUpperDiv -space-x-[0.1rem]">
-          <span>I</span>
-          <span>N</span>
-          <span>N</span>
-          <span>O</span>
-          <span>V</span>
-          <span>A</span>
-          <span>T</span>
-          <span>I</span>
-          <span>V</span>
-          <span>E</span>
+          {innovative}
         </div>
         <div className="flex innovativeLowerDiv -space-x-[0.1rem]">
-          <span>I</span>
-          <span>N</span>
-          <span>N</span>
-          <span>O</span>
-          <span>V</span>
-          <span>A</span>
-          <span>T</span>
-          <span>I</span>
-          <span>V</span>
-          <span>E</span>
+          {innovative}
         </div>
       </section>
       <aside className="flex-1" />
@@ -71,13 +57,16 @@ function InnovativeSection() {
   );
 }
 function FullstackSection() {
+  const fullstack = "FULLSTACK"
+    .split("")
+    .map((letter, idx) => <span key={idx}>{letter}</span>);
   return (
     //? the bordered box
     <section className="relative border-y left-0 flex justify-center w-full">
       <aside className="flex-1 flex items-center justify-center">
         {/* PROJECTS button */}
         <Button
-          variant="outline"
+          variant="outlineStatic"
           className="projects-btn p-3 pr-4 overflow-hidden rounded-full text-base flex justify-center gap-3"
         >
           <DownArrowBall className="projects-btn-ball" />
@@ -88,26 +77,10 @@ function FullstackSection() {
       </aside>
       <main className="fullstackDiv relative pt-4 pr-5 leading-[0.9] overflow-hidden h-[6rem] w-[40rem] justify-start items-end flex flex-col">
         <div className="fullstackUpperDiv flex -space-x-[0.1rem]">
-          <span>F</span>
-          <span>U</span>
-          <span>L</span>
-          <span>L</span>
-          <span>S</span>
-          <span>T</span>
-          <span>A</span>
-          <span>C</span>
-          <span>K</span>
+          {fullstack}
         </div>
         <div className="fullstackLowerDiv flex -space-x-[0.1rem]">
-          <span>F</span>
-          <span>U</span>
-          <span>L</span>
-          <span>L</span>
-          <span>S</span>
-          <span>T</span>
-          <span>A</span>
-          <span>C</span>
-          <span>K</span>
+          {fullstack}
         </div>
       </main>
       <aside className="flex-1" />
@@ -115,6 +88,9 @@ function FullstackSection() {
   );
 }
 function DeveloperSection() {
+  const developer = "DEVELOPER"
+    .split("")
+    .map((letter, idx) => <span key={idx}>{letter}</span>);
   return (
     <main className="flex w-full">
       {/* //? side box */}
@@ -122,26 +98,10 @@ function DeveloperSection() {
       {/* //? main part */}
       <section className="developerDiv relative leading-[0.9] overflow-hidden h-[6rem] w-[40rem] flex flex-col  justify-start pt-4">
         <div className="developerUpperDiv flex -space-x-[0.1rem]">
-          <span>D</span>
-          <span>E</span>
-          <span>V</span>
-          <span>E</span>
-          <span>L</span>
-          <span>O</span>
-          <span>P</span>
-          <span>E</span>
-          <span>R</span>
+          {developer}
         </div>
         <div className="developerLowerDiv flex -space-x-[0.1rem]">
-          <span>D</span>
-          <span>E</span>
-          <span>V</span>
-          <span>E</span>
-          <span>L</span>
-          <span>O</span>
-          <span>P</span>
-          <span>E</span>
-          <span>R</span>
+          {developer}
         </div>
       </section>
       {/* //? side box */}

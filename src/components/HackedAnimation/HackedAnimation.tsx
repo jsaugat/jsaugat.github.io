@@ -31,7 +31,7 @@ const HackedAnimation: React.FC<{ value: String; bgAnimation: Boolean }> = ({
         if (iteration > value.length) {
           clearInterval(interval);
         }
-      }, 30); // Adjust interval to control the animation speed
+      }, 60); // Adjust interval to control the animation speed
     };
 
     const element = document.getElementById(`hacked-animation-${value}`);
