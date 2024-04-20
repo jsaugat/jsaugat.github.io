@@ -78,7 +78,7 @@ function FullstackSection() {
         {/* PROJECTS button */}
         <Button
           variant="outline"
-          className="projects-btn flex justify-center gap-4 overflow-hidden rounded-full text-base"
+          className="projects-btn p-3 pr-4 overflow-hidden rounded-full text-base flex justify-center gap-3"
         >
           <DownArrowBall className="projects-btn-ball" />
           <p className="projects-btn-text font-medium font-neueHaas tracking-normal">
@@ -247,16 +247,6 @@ function homeAnimation() {
         ease: "power1.out",
       },
       "<"
-    )
-    .from(
-      ".projects-btn-text",
-      {
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        ease: "power4.out",
-      },
-      "<0.3"
     )
     // the descriptions next to "DEVELOPER"
     .from(

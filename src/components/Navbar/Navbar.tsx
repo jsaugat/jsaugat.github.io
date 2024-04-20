@@ -9,6 +9,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 // css
 import style from "./style.module.scss";
+import NavOverlay from "./NavOverlay";
 
 const menuLinks = [
   { href: "/", label: "Home" },
@@ -89,89 +90,8 @@ const Navbar = () => {
         </div>
       </section>
       {/* OVERLAY */}
-      {menuIsOpen && <Overlay toggleMenu={toggleMenu} />}
+      {menuIsOpen && <NavOverlay toggleMenu={toggleMenu} menuLinks={menuLinks} />}
     </main>
-  );
-};
-
-interface OverlayProps {
-  toggleMenu: () => void;
-}
-
-// OVERLAY
-const Overlay: React.FC<OverlayProps> = ({ toggleMenu }) => {
-  const socialLinks = [
-    { href: "https://twitter.com/jsaugat_", media: "Twitter" },
-    { href: "https://www.instagram.com/pyxelpainter", media: "Instagram" },
-    { href: "https://www.linkedin.com/in/jsaugat", media: "LinkedIn" },
-  ];
-  const pathname = usePathname();
-  return (
-    <nav className="overlay fixed top-4 right-3 h-[96vh] z-10 rounded-lg text-white border border-white/20 bg-neutral-800/20 backdrop-blur-lg flex">
-      <main className="p-8 flex flex-col justify-between">
-        <div>
-          {/* NAV SECTION */}
-          <ul
-            className={
-              style.menuItems +
-              "relative left-10 text-left flex flex-col gap-1 items-start justify-start"
-            }
-          >
-            <div className="bg-red-600/0 pt-3">
-              {menuLinks.map((link, idx) => (
-                <div className="menu-item mb-5">
-                  <div className="menu-item-holder">
-                    <Link
-                      key={idx}
-                      href={link.href}
-                      // className=""
-                      className={`font-neueRegrade font-bold text-5xl px-2 pt-2 rounded-md uppercase  ${
-                        pathname === link.href
-                          ? "bg-grin text-black hover:bg-grin"
-                          : "hover:bg-white hover:text-black"
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </ul>
-        </div>
-        {/* INFO SECTION */}
-        <section className="menu-info w-full flex flex-col gap-3">
-          <div className="menu-info-col font-jetBrains font-light text-sm uppercase flex items-center gap-2">
-            {socialLinks.map(({ href, media }, idx) => (
-              <div className="p-3 py-1 rounded-full bg-white/10 hover:bg-white/15 flex items-center gap-5">
-                <p>{idx + 1}.0</p>
-                <Link key={idx} href={href} target="_blank">
-                  {media}
-                </Link>
-              </div>
-            ))}
-          </div>
-          <div className="menu-info-col font-medium space-y-3">
-            <div className="border w-fit py-2 px-3 rounded-full border-white/20">
-              jsaugatt02.dev@gmail.com
-            </div>
-            <div className="border w-fit py-2 px-3 rounded-full border-white/20">
-              +977 9803343112
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <aside className="border">
-        <div
-          onClick={toggleMenu}
-          className="close-icon m-4 size-8 text-xl font-medium cursor-pointer flex items-center justify-center rotate-0 hover:rotate-90 transition-all delay-1000 ease-out"
-        >
-          &#x2715;
-        </div>
-        <hr/>
-      </aside>
-    </nav>
   );
 };
 
