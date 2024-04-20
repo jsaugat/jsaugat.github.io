@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
+import style from "./style.module.scss";
 
-const HackedAnimation: React.FC<{ value: string }> = ({ value }) => {
-  const [text, setText] = useState<string>(value);
+const HackedAnimation: React.FC<{ value: String; bgAnimation: Boolean }> = ({
+  value,
+  bgAnimation = false,
+}) => {
+  const [text, setText] = useState<String>(value);
   const alpha = "QWERTYUIOPASDFGHJKLZXCVBNM";
   let interval: NodeJS.Timeout;
 
@@ -41,7 +45,14 @@ const HackedAnimation: React.FC<{ value: string }> = ({ value }) => {
     }
   }, [value]);
 
-  return <h1 id={`hacked-animation-${value}`}>{text}</h1>;
+  return (
+    <p
+      id={`hacked-animation-${value}`}
+      className={`${bgAnimation === true && style.animateBG}`}
+    >
+      {text}
+    </p>
+  );
 };
 
 export default HackedAnimation;

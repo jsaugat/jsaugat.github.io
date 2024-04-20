@@ -2,7 +2,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import style from "./style.module.scss";
-import HackedAnimation from "../HackedAnimation";
+import HackedAnimation from "../HackedAnimation/HackedAnimation";
 
 interface MenuLink {
   label: string;
@@ -65,7 +65,7 @@ const NavOverlay: React.FC<OverlayProps> = ({ toggleMenu, menuLinks }) => {
                               : "hover:bg-white hover:text-black"
                           }`}
                         >
-                          <HackedAnimation value={link.label} />
+                          <HackedAnimation value={link.label} bgAnimation={false} />
                         </div>
                       </Link>
                     </div>
@@ -89,7 +89,7 @@ const NavOverlay: React.FC<OverlayProps> = ({ toggleMenu, menuLinks }) => {
                   target="_blank"
                   className="text-xs p-3 py-1 cursor-alias rounded-full flex items-center gap-5"
                 >
-                  {media}
+                  <HackedAnimation value={media} bgAnimation={true} />
                 </Link>
               ))}
             </div>
@@ -129,7 +129,7 @@ const SectionTitle = ({ title }: { title: string }) => {
     <div className="flex gap-2 items-center">
       <div className="size-[.35rem] bg-white" />
       <span className="text-[.7rem] uppercase font-jetBrains font-thin">
-        <HackedAnimation value={title} />
+        <HackedAnimation value={title} bgAnimation={false} />
       </span>
     </div>
   );
