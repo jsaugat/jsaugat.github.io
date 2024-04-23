@@ -17,7 +17,7 @@ const menuLinks = [
   { href: "/projects", label: "Projects" },
 ];
 
-const Navbar = () => {
+export default function Navbar () {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   useGSAP(() => {
     const tl = gsap.timeline();
@@ -53,8 +53,9 @@ const Navbar = () => {
   });
 
   return (
-    <main className="relative pt-4 mb-5">
-      <section className="navbar flex justify-between items-center ">
+    <main className="relative pt-4 mb-14 w-full">
+      {/* THE Nav */}
+      <nav className="navbar fixed z-[40] w-[95.84vw] flex justify-between items-center">
         <div className="flex items-center gap-6">
           {/* My Logo */}
           <SAU className="SAU" />
@@ -88,11 +89,9 @@ const Navbar = () => {
             </figure>
           </button>
         </div>
-      </section>
+      </nav>
       {/* OVERLAY */}
       {menuIsOpen && <NavOverlay toggleMenu={toggleMenu} menuLinks={menuLinks} />}
     </main>
   );
 };
-
-export default Navbar; 

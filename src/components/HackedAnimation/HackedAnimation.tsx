@@ -40,7 +40,7 @@ const HackedAnimation: React.FC<{ value: String; bgAnimation: Boolean }> = ({
 
       return () => {
         clearInterval(interval);
-        element.removeEventListener("mouseover", handleMouseOver);
+        element.removeEventListener("mouseleave", handleMouseOver);
       };
     }
   }, [value]);

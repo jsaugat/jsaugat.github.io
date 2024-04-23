@@ -1,14 +1,36 @@
 import { Button } from "@/components/ui/button";
 import RightArrow from "@/assets/RightArrow";
-import React from "react";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 // import "@/styles/";
 
 const Intro = () => {
+  const lref = useRef<HTMLDivElement>(null);
+  const rref = useRef<HTMLDivElement>(null);
+  useGSAP(() => {
+    const lel = lref.current;
+    const rel = rref.current;
+    gsap.from(lel, {
+      opacity: 0,
+      duration: 0.5,
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: lel,
+        start: "top 90%",
+        end: "top 50%",
+        scrub: true,
+        markers: false
+      }
+    })
+  })
   return (
     <main className="h-[90vh] grid place-items-center">
       <section className="relative flex gap-[5vw] h-[50vh]">
         {/* left */}
-        <div className="text-7xl leading-none font-montreal">
+        <h3 ref={lref} className="text-7xl leading-none font-montreal">
           Transforming your
           <br /> digital dreams into
           <br />{" "}
@@ -20,11 +42,11 @@ const Intro = () => {
               <RightStar />
             </div>
           </div>
-        </div>
+        </h3>
         {/* right */}
         <div className="relative top-[46%] h-fit">
           <p className="uppercase text-neutral-500 mb-4">(about this guy)</p>
-          <h3 className="uppercase text-2xl leading-tight">
+          <h3 ref={rref} className="uppercase text-2xl leading-tight">
             I’m a 22 Y.O. CS STUDENT, Persistently
             <br /> upgrading my skill set. hit me up for
             <br /> interesting projects and discussion.

@@ -5,7 +5,7 @@ import { GeistMono } from "geist/font/mono";
 import "@/styles/globals.css";
 import PreLoader from "@/components/PreLoader";
 import Container from "@/components/Container";
-import Navbar from "@/components/Navbar/Navbar";
+import Navbar from "@/components/Navbar";
 import "@/styles/App.scss";
 
 export const metadata: Metadata = {
