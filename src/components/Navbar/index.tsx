@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -17,7 +17,7 @@ const menuLinks = [
   { href: "/projects", label: "Projects" },
 ];
 
-export default function Navbar () {
+export default function Navbar() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   useGSAP(() => {
     const tl = gsap.timeline();
@@ -38,6 +38,35 @@ export default function Navbar () {
       ease: "power4.out",
     });
   });
+  useEffect(() => {
+    const body = document.body;
+    console.log(body);
+    let lastScroll = 0;
+
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.scrollY;
+      // Scroll Up Above ViewPort
+      if (currentScroll <= 0) {
+        body.classList.remove("scroll-up");
+        return; 
+      }
+
+      // Scroll Down 
+      if ( currentScroll > lastScroll && !body.classList.contains("scroll-down")) {
+        body.classList.remove("scroll-up");
+        body.classList.add("scroll-down");
+      } 
+      // Scroll Up
+      else if (
+        currentScroll < lastScroll &&
+        body.classList.contains("scroll-down")
+      ) {
+        body.classList.remove("scroll-down");
+        body.classList.add("scroll-up");
+      }
+      lastScroll = currentScroll;
+    });
+  });
 
   // Toggle Menu
   const toggleMenu = () => {
@@ -53,7 +82,7 @@ export default function Navbar () {
   });
 
   return (
-    <main className="relative pt-4 mb-14 w-full">
+    <header className="header relative pt-4 mb-14 w-full">
       {/* THE Nav */}
       <nav className="navbar fixed z-[40] w-[95.84vw] flex justify-between items-center">
         <div className="flex items-center gap-6">
@@ -91,7 +120,9 @@ export default function Navbar () {
         </div>
       </nav>
       {/* OVERLAY */}
-      {menuIsOpen && <NavOverlay toggleMenu={toggleMenu} menuLinks={menuLinks} />}
-    </main>
+      {menuIsOpen && (
+        <NavOverlay toggleMenu={toggleMenu} menuLinks={menuLinks} />
+      )}
+    </header>
   );
-};
+}

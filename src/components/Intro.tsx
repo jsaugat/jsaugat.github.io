@@ -1,52 +1,68 @@
 import { Button } from "@/components/ui/button";
 import RightArrow from "@/assets/RightArrow";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SplitType from "split-type";
 gsap.registerPlugin(ScrollTrigger);
 // import "@/styles/";
 
 const Intro = () => {
-  const lref = useRef<HTMLDivElement>(null);
-  const rref = useRef<HTMLDivElement>(null);
   useGSAP(() => {
-    const lel = lref.current;
-    const rel = rref.current;
-    gsap.from(lel, {
-      opacity: 0,
-      duration: 0.5,
-      ease: "power1.inOut",
-      scrollTrigger: {
-        trigger: lel,
-        start: "top 90%",
-        end: "top 50%",
-        scrub: true,
-        markers: false
-      }
-    })
-  })
+    const splitTypes = document.querySelectorAll<HTMLElement>(".left-intro");
+    splitTypes.forEach((char, i) => {
+      const text = new SplitType(char, { types: "chars" });
+
+      // gsap.from(text.chars, {
+      //   duration: 0.7,
+      //   stagger: 0.1,
+      //   scrollTrigger: {
+      //     trigger: char,
+      //     start: "top 80%",
+      //     end: "top 30%",
+      //     scrub: false,
+      //     toggleActions: "play play reverse reverse",
+      //     markers: false,
+      //   },
+      // });
+
+      gsap.from(text.chars, {
+        scrollTrigger: {
+          trigger: char,
+          start: "top 80%",
+          end: "top 30%",
+          scrub: true,
+          markers: false,
+        },
+        opacity: 0.1,
+        stagger: 0.1,
+      });
+    });
+  });
   return (
     <main className="h-[90vh] grid place-items-center">
       <section className="relative flex gap-[5vw] h-[50vh]">
         {/* left */}
-        <h3 ref={lref} className="text-7xl leading-none font-montreal">
-          Transforming your
-          <br /> digital dreams into
-          <br />{" "}
+        <div className="text-7xl leading-none font-montreal">
+          <h2 className="left-intro ">
+            Transforming your
+            <br /> digital dreams into
+            <br />
+          </h2>
           <div className="flex items-center gap-4">
-            <span>reality.</span>
+            <h2 className="left-intro">reality.</h2>
             <div className="inline-flex mt-2 h-[3.5rem] w-[9rem] bg-gradient-to-r from-transparent to-muted rounded-full items-center justify-around border-2 border-onyx">
               {/* two stars */}
               <LeftStar />
               <RightStar />
             </div>
           </div>
-        </h3>
+        </div>
         {/* right */}
         <div className="relative top-[46%] h-fit">
           <p className="uppercase text-neutral-500 mb-4">(about this guy)</p>
-          <h3 ref={rref} className="uppercase text-2xl leading-tight">
+          <h3 className="uppercase text-2xl leading-tight">
             I’m a 22 Y.O. CS STUDENT, Persistently
             <br /> upgrading my skill set. hit me up for
             <br /> interesting projects and discussion.

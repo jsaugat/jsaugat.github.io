@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import "@/styles/globals.css";
+import "@/styles/globals.scss";
 import PreLoader from "@/components/PreLoader";
 import Container from "@/components/Container";
 import Navbar from "@/components/Navbar";

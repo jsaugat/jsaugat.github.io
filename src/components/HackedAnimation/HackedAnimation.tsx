@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import style from "./style.module.scss";
+import { gsap } from "gsap";
+import SplitType from "split-type";
 
-const HackedAnimation: React.FC<{ value: String; bgAnimation: Boolean }> = ({
+const HackedAnimation: React.FC<{ value: string; bgAnimation: boolean }> = ({
   value,
   bgAnimation = false,
 }) => {
-  const [text, setText] = useState<String>(value);
+  const [text, setText] = useState<string>(value);
   const alpha = "QWERTYUIOPASDFGHJKLZXCVBNM";
-  let interval: NodeJS.Timeout;
+  const intervalRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
     const handleMouseOver = () => {
-      clearInterval(interval);
+      clearInterval(intervalRef.current);
       let iteration = 0;
-      interval = setInterval(() => {
+      intervalRef.current = setInterval(() => {
         setText((prevText) =>
           prevText
             .split("")
@@ -29,7 +31,7 @@ const HackedAnimation: React.FC<{ value: String; bgAnimation: Boolean }> = ({
 
         iteration += 1; // Increase iteration for smoother animation
         if (iteration > value.length) {
-          clearInterval(interval);
+          clearInterval(intervalRef.current);
         }
       }, 60); // Adjust interval to control the animation speed
     };
@@ -38,9 +40,29 @@ const HackedAnimation: React.FC<{ value: String; bgAnimation: Boolean }> = ({
     if (element) {
       element.addEventListener("mouseover", handleMouseOver);
 
+      // GSAP Animation
+      const splitTypes = document.querySelectorAll<HTMLElement>(
+        `#hacked-animation-${value}`
+      );
+      splitTypes.forEach((char, i) => {
+        const textSplit = new SplitType(char, { types: "chars" });
+
+        gsap.from(textSplit.chars, {
+          scrollTrigger: {
+            trigger: char,
+            start: "top 80%",
+            end: "top 30%",
+            scrub: true,
+            markers: false,
+          },
+          opacity: 0.2,
+          stagger: 0.1,
+        });
+      });
+
       return () => {
-        clearInterval(interval);
-        element.removeEventListener("mouseleave", handleMouseOver);
+        clearInterval(intervalRef.current);
+        element.removeEventListener("mouseover", handleMouseOver);
       };
     }
   }, [value]);

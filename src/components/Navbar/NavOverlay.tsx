@@ -35,7 +35,7 @@ const NavOverlay: React.FC<OverlayProps> = ({ toggleMenu, menuLinks }) => {
   };
 
   return (
-    <nav className="overlay fixed z-50 top-0 right-0 h-screen w-screen md:top-4 md:right-2 md:w-fit md:h-[96vh] z-10 rounded-lg text-white border border-white/30 bg-black md:bg-black/70 backdrop-blur-lg overflow-hidden flex justify-between">
+    <nav className="overlay fixed z-50 top-0 right-0 h-screen w-screen md:top-4 md:right-2 md:w-fit md:h-[96vh] rounded-lg text-white border border-white/30 bg-black md:bg-black/70 backdrop-blur-lg overflow-hidden flex justify-between">
       <main className="flex flex-col justify-between flex-1">
         {/* UPPER SECTION */}
         <section className="py-8 px-6 flex gap-12 items-start flex-1">
