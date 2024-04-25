@@ -85,7 +85,7 @@ const NavOverlay: React.FC<OverlayProps> = ({ toggleMenu, menuLinks }) => {
             {/* Connect Info */}
             <section className="menu-info w-full flex flex-col gap-3">
               {/* Social Links */}
-              <div className="menu-info-col font-jetBrains font-light text-sm uppercase flex flex-col items-start">
+              <div className="menu-info-col font-ibmPlexMono font-light text-sm uppercase flex flex-col items-start">
                 {socialLinks.map(({ href, media }, idx) => (
                   <Link
                     key={idx}
@@ -97,7 +97,7 @@ const NavOverlay: React.FC<OverlayProps> = ({ toggleMenu, menuLinks }) => {
                   </Link>
                 ))}
               </div>
-              <div className="menu-info-col font-jetBrains font-thin text-xs flex flex-col gap-1 flex-wrap">
+              <div className="menu-info-col font-ibmPlexMono font-thin text-xs flex flex-col gap-1 flex-wrap">
                 <button
                   onClick={handleCopy}
                   className="w-fit py-1 px-3 border rounded-full cursor-copy hover:bg-neutral-900 uppercase flex gap-2"
@@ -137,7 +137,7 @@ const SectionTitle = ({ title }: { title: string }) => {
   return (
     <main className="flex gap-2 items-center">
       <div className="size-[.35rem] bg-white" />
-      <span className="text-[.7rem] uppercase font-jetBrains font-thin cursor-default">
+      <span className="text-[.7rem] uppercase font-ibmPlexMono font-thin cursor-default">
         <HackedAnimation value={title} bgAnimation={false} />
       </span>
     </main>

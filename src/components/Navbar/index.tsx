@@ -48,14 +48,17 @@ export default function Navbar() {
       // Scroll Up Above ViewPort
       if (currentScroll <= 0) {
         body.classList.remove("scroll-up");
-        return; 
+        return;
       }
 
-      // Scroll Down 
-      if ( currentScroll > lastScroll && !body.classList.contains("scroll-down")) {
+      // Scroll Down
+      if (
+        currentScroll > lastScroll &&
+        !body.classList.contains("scroll-down")
+      ) {
         body.classList.remove("scroll-up");
         body.classList.add("scroll-down");
-      } 
+      }
       // Scroll Up
       else if (
         currentScroll < lastScroll &&
@@ -85,22 +88,20 @@ export default function Navbar() {
     <header className="header relative pt-4 mb-14 w-full">
       {/* THE Nav */}
       <nav className="navbar fixed z-[5] w-[95.84vw] mx-[1rem] md:mx-[2rem] flex justify-between items-center">
-        <div className="flex items-center gap-6">
+        <section className="flex items-center gap-6">
           {/* My Logo */}
           <SAU className="SAU" />
           {/* Saugat Joshi */}
-          <div className="flex flex-col cursor-pointer leading-tight">
-            <span className="font-medium">Saugat Joshi</span>
-            <div className="flex items-center gap-1">
-              {/* <div className="green-indicator rounded-full bg-green-500/40 size-4 flex justify-center items-center">
-              <div className="rounded-full bg-green-600 size-2"></div>
-            </div> */}
-              <span className="text-white/50 text-[0.92rem]">
-                Available for collab __
-              </span>
+          <section className="flex flex-col cursor-pointer leading-tight">
+            <p className="font-medium">Saugat Joshi</p>
+            <div className="flex items-center gap-2">
+              <div className="bg-white size-[0.45rem]"></div>
+              <p className="text-white/50 text-xs font-ibmPlexMono font-light uppercase">
+                Available for collab
+              </p>
             </div>
-          </div>
-        </div>
+          </section>
+        </section>
         {/* time */}
         {/* <div className="border rounded-full px-3 py-2">{formattedTime}</div> */}
         <div className="flex items-center gap-2">

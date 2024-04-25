@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useRef } from "react";
-import DownRight from "@/assets/DownRight";
 import { Button } from "@/components/ui/button";
 import DownArrowBall from "@/assets/DownArrowBall";
 import Intro from "@/components/Intro";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ArrowDownRight } from "lucide-react";
+import styles from "./styles.module.scss"
+
 gsap.defaults({ ease: "none", duration: 0.8 });
 
 export default function Home() {
@@ -27,10 +29,10 @@ export default function Home() {
           <FullstackSection />
           <DeveloperSection />
         </main>
-        {/*  */}
-        <div className="down-right absolute inline-flex items-center justify-center bottom-[12%] size-[6rem] rounded-full border border-white">
-          <DownRight className="" />
-        </div>
+        {/* SCROLL DOWN ARROW */}
+        <button className={`${styles.arrowDownRightBtn} absolute bottom-[12%] size-[6rem] rounded-full border border-white flex items-center justify-center`}>
+          <ArrowDownRight size={"60px"} strokeWidth={"0.5"} className={`${styles.arrowDownRightIcon}`} />
+        </button>
       </section>
       <Intro />
     </main>
@@ -71,7 +73,7 @@ function FullstackSection() {
           className="projects-btn p-3 pr-4 overflow-hidden rounded-full text-base flex justify-center gap-3"
         >
           <DownArrowBall className="projects-btn-ball" />
-          <p className="projects-btn-text font-medium font-neueHaas tracking-normal">
+          <p className="projects-btn-text font-ibmPlexMono font-light tracking-normal">
             PROJECTS
           </p>
         </Button>
@@ -109,18 +111,19 @@ function DeveloperSection() {
       <aside className="relative text-left flex items-center flex-1">
         <section className="description absolute -left-32 text-lg font-neueHaas font-medium leading-tight tracking-normal flex flex-col">
           {/* lines animate-in from 'y: 30' */}
-          <div className="overflow-hidden">
-            <p className="description-1">
-              I use my profound enthusiasm for both
-            </p>
-          </div>
-          <div className="overflow-hidden">
-            <p className="description-2">design and backend development to</p>
-          </div>
-          <div className="overflow-hidden">
-            <p className="description-3">
-              drive success in fullstack development.
-            </p>
+          <div>
+            {[
+              "I use my profound enthusiasm for both",
+              "design and backend development to",
+              "drive success in fullstack development.",
+            ].map((description, index) => (
+              <div
+                key={index}
+                className="overflow-hidden font-ibmPlexMono font-light uppercase text-sm"
+              >
+                <p className={`description-${index + 1}`}>{description}</p>
+              </div>
+            ))}
           </div>
         </section>
       </aside>

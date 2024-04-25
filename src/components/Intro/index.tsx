@@ -162,13 +162,13 @@ const AboutButton = () => {
     <main
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
-      className={`${styles.aboutBtn} aboutBtn relative group h-10 w-40 py-2 font-medium border rounded-full border-grin hover:bg-grin hover:text-black overflow-hidden flex justify-end items-center`}
+      className={`${styles.aboutBtn} aboutBtn relative group h-10 w-40 py-2 font-medium border rounded-full border-white/50 hover:bg-white hover:text-black overflow-hidden flex justify-end items-center`}
     >
       <section className={`${styles.aboutContent} absolute w-fit h-full inline-flex items-center justify-center pointer-events-none`}>
         <div className="w-40 flex justify-center items-center">
           <ArrowRight size="32px" />
         </div>
-        <div className="w-40 font-jetBrains flex justify-center items-center">
+        <div className="w-40 font-ibmPlexMono font-light flex justify-center items-center">
           ABOUT ME
         </div>
       </section>
