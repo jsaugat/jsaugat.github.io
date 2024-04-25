@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import RightArrow from "@/assets/RightArrow";
+import RightArrow from "@/components/assets/RightArrow";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 import { ArrowRight, ArrowUpRight } from "lucide-react";

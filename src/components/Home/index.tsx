@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import DownArrowBall from "@/assets/DownArrowBall";
+import DownArrowBall from "@/components/assets/DownArrowBall";
 import Intro from "@/components/Intro";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -119,7 +119,7 @@ function DeveloperSection() {
             ].map((description, index) => (
               <div
                 key={index}
-                className="overflow-hidden font-ibmPlexMono font-light uppercase text-sm"
+                className="overflow-hidden neueRegrade"
               >
                 <p className={`description-${index + 1}`}>{description}</p>
               </div>

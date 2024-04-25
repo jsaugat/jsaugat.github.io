@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import SAU from "@/assets/SAU";
+import SAU from "@/components/assets/SAU";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 // css

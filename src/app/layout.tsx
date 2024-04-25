@@ -43,6 +43,7 @@ const neueRegrade = localFont({
       style: 'bold',
     }
   ],
+  variable: "--font-neueRegrade"
 })
 
 export const metadata: Metadata = {
@@ -58,7 +59,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${IBMPlexMono.variable} ${neueRegrade.className}`}
+      className={`dark ${IBMPlexMono.variable} ${neueRegrade.variable}`}
     >
       <head></head>
       <body>

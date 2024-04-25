@@ -22,7 +22,7 @@ const config = {
         geist: ["var(--font-geist-sans)"],
         geistMono: ["var(--font-geist-mono)"],
         neueHaas: ["Neue Haas Grotesk Display Pro", "sans-serif"],
-        neueRegrade: ["Neue Regrade", "sans-serif"],
+        neueRegrade: ["var(--font-neueRegrade)"],
         jetBrains: ["JetBrains Mono", "sans-serif"],
         ibmPlexMono: ['var(--font-ibm-plex-mono)', "JetBrains Mono"]
       },
