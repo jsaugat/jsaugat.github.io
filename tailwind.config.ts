@@ -26,7 +26,7 @@ const config = {
         jetBrains: ["JetBrains Mono", "sans-serif"],
       },
       colors: {
-        grin: "#C0FB50",
+        grin: "#95FF00",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

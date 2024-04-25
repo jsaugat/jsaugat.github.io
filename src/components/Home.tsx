@@ -7,6 +7,7 @@ import DownArrowBall from "@/assets/DownArrowBall";
 import Intro from "@/components/Intro";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+gsap.defaults({ ease: "none", duration: 0.8 });
 
 export default function Home() {
   const hero = useRef<HTMLElement>(null);
@@ -159,7 +160,7 @@ function homeAnimation() {
     {
       y: yDistForHeroHeaders,
       delay: (i) => 0 + i * 0.04,
-      ease: "power1.out",
+      ease: "power4.out",
     },
     "0.5"
   )
@@ -168,7 +169,7 @@ function homeAnimation() {
       {
         y: yDistForHeroHeaders,
         delay: (i) => 0 + i * 0.04,
-        ease: "power1.out",
+        ease: "power4.out",
       },
       "<"
     )
@@ -177,7 +178,7 @@ function homeAnimation() {
       {
         y: yDistForHeroHeaders,
         delay: (i) => 0 + i * 0.04,
-        ease: "power1.out",
+        ease: "power4.out",
       },
       "<0.3"
     )
@@ -186,7 +187,7 @@ function homeAnimation() {
       {
         y: yDistForHeroHeaders,
         delay: (i) => 0 + i * 0.04,
-        ease: "power1.out",
+        ease: "power4.out",
       },
       "<"
     )

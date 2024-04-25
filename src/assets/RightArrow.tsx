@@ -1,6 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 
-const RightArrow = ({ className }) => {
+interface Props {
+  className: string;
+  pathClassName: string;
+}
+
+const RightArrow: FC<Props> = ({ className, pathClassName }) => {
   return (
     <svg
       width="18"
@@ -15,7 +20,7 @@ const RightArrow = ({ className }) => {
         stroke="#F1F1F1"
         stroke-linecap="round"
         stroke-linejoin="round"
-        className="path"
+        className={pathClassName}
       />
     </svg>
   );

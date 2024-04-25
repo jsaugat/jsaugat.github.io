@@ -35,99 +35,101 @@ const NavOverlay: React.FC<OverlayProps> = ({ toggleMenu, menuLinks }) => {
   };
 
   return (
-    <nav className="overlay fixed z-50 top-0 right-0 h-screen w-screen md:top-4 md:right-2 md:w-fit md:h-[96vh] rounded-lg text-white border border-white/30 bg-black md:bg-black/70 backdrop-blur-lg overflow-hidden flex justify-between">
-      <main className="flex flex-col justify-between flex-1">
-        {/* UPPER SECTION */}
-        <section className="py-8 px-6 flex gap-12 items-start flex-1">
-          {/* - DISCOVER */}
-          <SectionTitle title="Discover" />
-          {/* Navigation Links*/}
-          <section className="flex-1 w-[22vw]">
-            <ul
-              className={
-                style.menuItems +
-                "relative left-10 text-left flex flex-col gap-1 items-start justify-start"
-              }
-            >
-              <div className="bg-red-600/0">
-                {menuLinks.map((link, idx) => (
-                  <div className="menu-item mb-2">
-                    <div className="menu-item-holder">
-                      <Link
-                        key={idx}
-                        href={link.href}
-                        // className=""
-                      >
-                        <div
-                          className={`w-fit font-neueRegrade font-bold text-5xl px-2 pt-2 rounded-sm uppercase ${
-                            pathname === link.href
-                              ? "bg-grin text-black"
-                              : "hover:bg-white hover:text-black"
-                          }`}
+    <main className="absolute z-10 top-0 left-0 h-screen w-screen bg-transparent backdrop-blur-md">
+      <nav className="overlay fixed z-[999] top-0 right-0 h-screen w-screen md:top-4 md:right-2 md:w-fit md:h-[96vh] rounded-lg text-white border border-white/30 bg-black backdrop-blur-lg overflow-hidden flex justify-between">
+        <main className="flex flex-col justify-between flex-1">
+          {/* UPPER SECTION */}
+          <section className="py-8 px-6 flex gap-12 items-start flex-1">
+            {/* - DISCOVER */}
+            <SectionTitle title="Discover" />
+            {/* Navigation Links*/}
+            <section className="flex-1 w-[22vw]">
+              <ul
+                className={
+                  style.menuItems +
+                  "relative left-10 text-left flex flex-col gap-1 items-start justify-start"
+                }
+              >
+                <div className="bg-red-600/0">
+                  {menuLinks.map((link, idx) => (
+                    <div className="menu-item mb-2">
+                      <div className="menu-item-holder">
+                        <Link
+                          key={idx}
+                          href={link.href}
+                          // className=""
                         >
-                          <HackedAnimation
-                            value={link.label}
-                            bgAnimation={false}
-                          />
-                        </div>
-                      </Link>
+                          <div
+                            className={`w-fit font-neueRegrade font-bold text-5xl px-2 pt-2 rounded-sm uppercase transition duration-3000 ease-in-out ${
+                              pathname === link.href
+                                ? "bg-grin text-black"
+                                : "hover:bg-white hover:text-black"
+                            }`}
+                          >
+                            <HackedAnimation
+                              value={link.label}
+                              bgAnimation={false}
+                            />
+                          </div>
+                        </Link>
+                      </div>
                     </div>
-                  </div>
+                  ))}
+                </div>
+              </ul>
+            </section>
+          </section>
+          {/* LOWER SECTION */}
+          <section className="border-t pt-6 px-6 pb-8 flex gap-12 items-start">
+            <SectionTitle title="Connect" />
+            {/* Connect Info */}
+            <section className="menu-info w-full flex flex-col gap-3">
+              {/* Social Links */}
+              <div className="menu-info-col font-jetBrains font-light text-sm uppercase flex flex-col items-start">
+                {socialLinks.map(({ href, media }, idx) => (
+                  <Link
+                    key={idx}
+                    href={href}
+                    target="_blank"
+                    className="text-xs p-3 py-1 cursor-alias rounded-full flex items-center gap-5"
+                  >
+                    <HackedAnimation value={media} bgAnimation={true} />
+                  </Link>
                 ))}
               </div>
-            </ul>
-          </section>
-        </section>
-        {/* LOWER SECTION */}
-        <section className="border-t pt-6 px-6 pb-8 flex gap-12 items-start">
-          <SectionTitle title="Connect" />
-          {/* Connect Info */}
-          <section className="menu-info w-full flex flex-col gap-3">
-            {/* Social Links */}
-            <div className="menu-info-col font-jetBrains font-light text-sm uppercase flex flex-col items-start">
-              {socialLinks.map(({ href, media }, idx) => (
-                <Link
-                  key={idx}
-                  href={href}
-                  target="_blank"
-                  className="text-xs p-3 py-1 cursor-alias rounded-full flex items-center gap-5"
+              <div className="menu-info-col font-jetBrains font-thin text-xs flex flex-col gap-1 flex-wrap">
+                <button
+                  onClick={handleCopy}
+                  className="w-fit py-1 px-3 border rounded-full cursor-copy hover:bg-neutral-900 uppercase flex gap-2"
                 >
-                  <HackedAnimation value={media} bgAnimation={true} />
-                </Link>
-              ))}
-            </div>
-            <div className="menu-info-col font-jetBrains font-thin text-xs flex flex-col gap-1 flex-wrap">
-              <button
-                onClick={handleCopy}
-                className="w-fit py-1 px-3 border rounded-full cursor-copy hover:bg-neutral-900 uppercase flex gap-2"
-              >
-                <MailIcon color="white" />
-                <span>jsaugatt02.dev@gmail.com</span>
-              </button>
-              <button
-                onClick={handleCopy}
-                className="w-fit py-1 px-3 border rounded-full cursor-copy hover:bg-neutral-900 flex gap-2"
-              >
-                <PhoneIcon color="white" />
-                <span>+977 9803343112</span>
-              </button>
-            </div>
+                  <MailIcon color="white" />
+                  <span>jsaugatt02.dev@gmail.com</span>
+                </button>
+                <button
+                  onClick={handleCopy}
+                  className="w-fit py-1 px-3 border rounded-full cursor-copy hover:bg-neutral-900 flex gap-2"
+                >
+                  <PhoneIcon color="white" />
+                  <span>+977 9803343112</span>
+                </button>
+              </div>
+            </section>
           </section>
-        </section>
-      </main>
+        </main>
 
-      {/* Right Sidebar */}
-      <aside className="border overflow-hidden">
-        <div
-          onClick={toggleMenu}
-          className="close-icon group p-4 size-12 text-xl border-b rounded-tr-sm font-medium cursor-pointer flex items-center justify-center hover:text-neutral-500"
-        >
-          <span className="group-hover:rotate-90 transition-all ease-out">
-            &#x2715;
-          </span>
-        </div>
-      </aside>
-    </nav>
+        {/* Right Sidebar */}
+        <aside className="border overflow-hidden">
+          <div
+            onClick={toggleMenu}
+            className="close-icon group p-4 size-12 text-xl border-b rounded-tr-sm font-medium cursor-pointer flex items-center justify-center hover:text-neutral-500"
+          >
+            <span className="group-hover:rotate-90 transition-all ease-out">
+              &#x2715;
+            </span>
+          </div>
+        </aside>
+      </nav>
+    </main>
   );
 };
 

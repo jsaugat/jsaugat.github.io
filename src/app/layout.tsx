@@ -33,12 +33,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <PreLoader />
-          <Container>
-            <main className="app relative h-screen w-full">
-              <Navbar />
-              {children}
-            </main>
-          </Container>
+          <main className="app relative h-screen w-full">
+            <Navbar />
+            <Container>{children}</Container>
+          </main>
         </ThemeProvider>
       </body>
     </html>

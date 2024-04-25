@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import style from "./style.module.scss";
+import styles from "./styles.module.scss";
 import { gsap } from "gsap";
 import SplitType from "split-type";
 
@@ -70,7 +70,7 @@ const HackedAnimation: React.FC<{ value: string; bgAnimation: boolean }> = ({
   return (
     <p
       id={`hacked-animation-${value}`}
-      className={`${bgAnimation === true && style.animateBG}`}
+      className={`${bgAnimation === true && styles.animateBG}`}
     >
       {text}
     </p>

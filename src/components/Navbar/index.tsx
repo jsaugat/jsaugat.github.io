@@ -84,7 +84,7 @@ export default function Navbar() {
   return (
     <header className="header relative pt-4 mb-14 w-full">
       {/* THE Nav */}
-      <nav className="navbar fixed z-[40] w-[95.84vw] flex justify-between items-center">
+      <nav className="navbar fixed z-[5] w-[95.84vw] mx-[1rem] md:mx-[2rem] flex justify-between items-center">
         <div className="flex items-center gap-6">
           {/* My Logo */}
           <SAU className="SAU" />
@@ -104,7 +104,7 @@ export default function Navbar() {
         {/* time */}
         {/* <div className="border rounded-full px-3 py-2">{formattedTime}</div> */}
         <div className="flex items-center gap-2">
-          <h3 onClick={toggleMenu} className="cursor-pointer">
+          <h3 onClick={toggleMenu} className="cursor-pointer text-grin">
             MENU
           </h3>
           {/* Hamburger */}
@@ -113,8 +113,8 @@ export default function Navbar() {
             className={`${style.menuIcon} h-10 w-14 p-2 flex items-center justify-center rounded-full`}
           >
             <figure className="flex flex-col justify-center items-start gap-1 size-full">
-              <div className="w-10 h-[0.1rem] bg-white"></div>
-              <div className="w-10 h-[0.1rem] bg-white"></div>
+              <div className="w-10 h-[0.1rem] bg-grin"></div>
+              <div className="w-10 h-[0.1rem] bg-grin"></div>
             </figure>
           </button>
         </div>
