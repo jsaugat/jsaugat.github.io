@@ -7,14 +7,9 @@ import PreLoader from "@/components/PreLoader";
 import Container from "@/components/Container";
 import Navbar from "@/components/Navbar";
 import "@/styles/App.scss";
-import { IBM_Plex_Mono } from "@next/font/google";
+import localFont from "@next/font/local";
+const myFont = localFont({src: '/public/fonts'})
 
-const IBMPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: "400", // Example weight, adjust as needed
-  style: "normal", // Example style, adjust as needed
-  variable: "--font-ibm-plex-mono"
-});
 
 export const metadata: Metadata = {
   title: "Saugat",
@@ -29,7 +24,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${IBMPlexMono.variable} font-plexMono`}
+      className={`dark ${} font-plexMono`}
     >
       <head></head>
       <body>
