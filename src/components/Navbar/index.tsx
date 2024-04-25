@@ -104,7 +104,7 @@ export default function Navbar() {
         {/* time */}
         {/* <div className="border rounded-full px-3 py-2">{formattedTime}</div> */}
         <div className="flex items-center gap-2">
-          <h3 onClick={toggleMenu} className="cursor-pointer text-grin">
+          <h3 onClick={toggleMenu} className="cursor-pointer">
             MENU
           </h3>
           {/* Hamburger */}
@@ -113,8 +113,8 @@ export default function Navbar() {
             className={`${style.menuIcon} h-10 w-14 p-2 flex items-center justify-center rounded-full`}
           >
             <figure className="flex flex-col justify-center items-start gap-1 size-full">
-              <div className="w-10 h-[0.1rem] bg-grin"></div>
-              <div className="w-10 h-[0.1rem] bg-grin"></div>
+              <div className="w-10 h-[0.1rem] bg-white"></div>
+              <div className="w-10 h-[0.1rem] bg-white"></div>
             </figure>
           </button>
         </div>

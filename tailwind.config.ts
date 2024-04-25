@@ -24,6 +24,7 @@ const config = {
         neueHaas: ["Neue Haas Grotesk Display Pro", "sans-serif"],
         neueRegrade: ["Neue Regrade", "sans-serif"],
         jetBrains: ["JetBrains Mono", "sans-serif"],
+        plexMono: ['var(--font-ibm-plex-mono)', "JetBrains Mono"]
       },
       colors: {
         grin: "#95FF00",

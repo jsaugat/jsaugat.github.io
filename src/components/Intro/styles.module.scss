@@ -1,13 +1,13 @@
 //? about button - Intro.jsx file
 
-.arrowPath {
-  transition: transform 0.3s ease-in-out;
+.aboutContent {
+  transition: transform 0.4s ease-in-out;
 }
+
 .aboutBtn {
   &:hover {
-    .rightArrow .arrowPath {
-      transform: translateX(8px);
-      color: black;
+    .aboutContent {
+      transform: translateX(160px);
     }
   }
 }

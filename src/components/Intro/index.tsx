@@ -1,7 +1,10 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import RightArrow from "@/assets/RightArrow";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,69 +12,55 @@ import SplitType from "split-type";
 // import "@/styles/";
 
 gsap.registerPlugin(ScrollTrigger);
-gsap.defaults({ ease: "none", duration: 2 });
+gsap.defaults({ ease: "power3.in" });
 
 const Intro = () => {
   useGSAP(() => {
-    const splitTypes = document.querySelectorAll<HTMLElement>(".left-intro");
+    const splitTypes = gsap.utils.toArray<HTMLElement>(".left-intro");
+    const panels = gsap.utils.toArray<HTMLElement>(".panel");
+
     splitTypes.forEach((char, i) => {
       const text = new SplitType(char, { types: "chars" });
-
       gsap.from(text.chars, {
         scrollTrigger: {
           trigger: char,
           start: "top 85%",
           end: "+=200",
           scrub: 1,
-          // pin: true,
           markers: false,
         },
-        opacity: 0.2,
-        stagger: 0.1,
+        opacity: 0.1,
+        stagger: 0.05,
         ease: "power4.in",
       });
-      gsap.to(".right-intro", {
-        scrollTrigger: {
-          trigger: ".right-intro",
-          start: "top 80%",
-          end: "+=300",
-          markers: true,
-          scrub: 1,
-        },
-        rotation: 360,
-      });
     });
-  });
 
-  useGSAP(() => {
-    const tl = gsap.timeline();
-    // tl.from(".panel", { xPercent: -100 })
-    //   .from(".panel", { xPercent: 100 })
-    //   .from(".panel", { yPercent: -100 })
-    //   .from(".panel", { xPercent: -100 });
-
-    // Main section gets pinned behind the panels and fades to zero opacity
-    gsap.to(".main", {
+    gsap.from(".right-intro", {
       scrollTrigger: {
-        trigger: ".main",
-        start: "top top",
-        scrub: true,
-        pin: true,
-        pinSpacing: false,
+        trigger: ".right-intro",
+        start: "top 60%",
+        end: "+=100",
+        markers: false,
+        scrub: 1,
       },
-      opacity: 0,
+      opacity: 1,
     });
-    // Panels overlap one by one
-    const panels: HTMLElement[] = gsap.utils.toArray(".panel");
-    panels.forEach((panel, i) => {
-      ScrollTrigger.create({
-        trigger: panel,
-        start: "top top",
-        scrub: true,
-        pin: true,
-        pinSpacing: false,
-      });
-    });
+
+    // Panels animation
+    // const tl = gsap.timeline();
+    // tl.from(".red", { xPercent: -100 })
+    //   .from(".blue", { xPercent: 100 })
+    //   .from(".green", { yPercent: -100 })
+
+    // panels.forEach((panel, i) => {
+    //   ScrollTrigger.create({
+    //     trigger: panel,
+    //     start: "top top",
+    //     scrub: true,
+    //     pin: true,
+    //     pinSpacing: false,
+    //   });
+    // });
   });
 
   return (
@@ -104,16 +93,7 @@ const Intro = () => {
               <br /> interesting projects and discussion.
             </h3>
             <div className="h-8" />
-            <Button
-              variant="outline"
-              className={styles.aboutBtn + "flex gap-5 border-grin"}
-            >
-              <span className="">About Me</span>
-              <RightArrow
-                className={styles.rightArrow}
-                pathClassName={styles.arrowPath}
-              />
-            </Button>
+            <AboutButton />
           </section>
         </section>
       </main>
@@ -165,5 +145,35 @@ const RightStar = () => (
     </g>
   </svg>
 );
+const AboutButton = () => {
+  const [beingHovered, setBeingHovered] = useState<boolean>(false);
+  const [arrowColor, setArrowColor] = useState<string>("");
+
+  const handleMouseOver = () => {
+    setBeingHovered(true);
+    setArrowColor("black");
+  };
+  const handleMouseLeave = () => {
+    setBeingHovered(false);
+    setArrowColor("white");
+  };
+
+  return (
+    <main
+      onMouseOver={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
+      className={`${styles.aboutBtn} aboutBtn relative group h-10 w-40 py-2 font-medium border rounded-full border-grin hover:bg-grin hover:text-black overflow-hidden flex justify-end items-center`}
+    >
+      <section className={`${styles.aboutContent} absolute w-fit h-full inline-flex items-center justify-center pointer-events-none`}>
+        <div className="w-40 flex justify-center items-center">
+          <ArrowRight size="32px" />
+        </div>
+        <div className="w-40 font-jetBrains flex justify-center items-center">
+          ABOUT ME
+        </div>
+      </section>
+    </main>
+  );
+};
 
 export default Intro;

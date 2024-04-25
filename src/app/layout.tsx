@@ -1,12 +1,20 @@
+// import { GeistSans } from "geist/font/sans";
+// import { GeistMono } from "geist/font/mono";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
 import "@/styles/globals.scss";
 import PreLoader from "@/components/PreLoader";
 import Container from "@/components/Container";
 import Navbar from "@/components/Navbar";
 import "@/styles/App.scss";
+import { IBM_Plex_Mono } from "@next/font/google";
+
+const IBMPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: "400", // Example weight, adjust as needed
+  style: "normal", // Example style, adjust as needed
+  variable: "--font-ibm-plex-mono"
+});
 
 export const metadata: Metadata = {
   title: "Saugat",
@@ -21,8 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="dark"
-      // className={`dark ${GeistSans.variable} ${GeistMono.variable}`}
+      className={`dark ${IBMPlexMono.variable} font-plexMono`}
     >
       <head></head>
       <body>
