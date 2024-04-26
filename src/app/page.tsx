@@ -1,6 +1,7 @@
 "use client"
 
 import Home from "@/components/Home";
+import Intro from "@/components/Intro";
 import { useEffect } from "react";
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
   return (
     <main className="flex min-h-screen flex-col justify-between">
       <Home />
+      <Intro />
     </main>
   );
 }

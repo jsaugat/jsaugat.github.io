@@ -8,8 +8,9 @@ import SAU from "@/components/assets/SAU";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 // css
-import style from "./style.module.scss";
+import styles from "./styles.module.scss";
 import NavOverlay from "./NavOverlay";
+import DownArrowBall from "../assets/DownArrowBall";
 
 const menuLinks = [
   { href: "/", label: "Home" },
@@ -76,14 +77,6 @@ export default function Navbar() {
     setMenuIsOpen(!menuIsOpen);
   };
 
-  // Current Time
-  const now = new Date();
-  const formattedTime = now.toLocaleTimeString("en-US", {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  });
-
   return (
     <header className="header relative pt-4 mb-14 w-full">
       {/* THE Nav */}
@@ -92,33 +85,43 @@ export default function Navbar() {
           {/* My Logo */}
           <SAU className="SAU" />
           {/* Saugat Joshi */}
-          <section className="flex flex-col cursor-pointer leading-tight">
+          <section className="flex flex-col cursor-pointer leading-tight gap-1">
             <p className="font-medium">Saugat Joshi</p>
             <div className="flex items-center gap-2">
-              <div className="bg-white size-[0.45rem]"></div>
-              <p className="text-white/50 text-xs font-ibmPlexMono font-light uppercase">
+              <mark className="bg-white size-[0.45rem]" />
+              <p className="text-white/50 text-[0.8rem] font-ibmPlexMono font-light uppercase">
                 Available for collab
               </p>
             </div>
           </section>
         </section>
-        {/* time */}
-        {/* <div className="border rounded-full px-3 py-2">{formattedTime}</div> */}
-        <div className="flex items-center gap-2">
-          <h3 onClick={toggleMenu} className="cursor-pointer">
-            MENU
-          </h3>
-          {/* Hamburger */}
-          <button
-            onClick={toggleMenu}
-            className={`${style.menuIcon} h-10 w-14 p-2 flex items-center justify-center rounded-full`}
+        <section className="flex items-center gap-3">
+          {/* PROJECTS button */}
+          <Button
+            variant="outlineStatic"
+            className="projects-btn ml-10 p-1 pr-4 overflow-hidden rounded-full text-base flex justify-center gap-3"
           >
-            <figure className="flex flex-col justify-center items-start gap-1 size-full">
-              <div className="w-10 h-[0.1rem] bg-white"></div>
-              <div className="w-10 h-[0.1rem] bg-white"></div>
-            </figure>
-          </button>
-        </div>
+            <DownArrowBall className="projects-btn-ball" />
+            <p className="projects-btn-text font-ibmPlexMono font-light tracking-normal">
+              PROJECTS
+            </p>
+          </Button>
+          <div className="flex items-center gap-2">
+            {/* <h3 onClick={toggleMenu} className="cursor-pointer font-ibmPlexMono">
+              MENU
+            </h3> */}
+            {/* Hamburger */}
+            <button
+              onClick={toggleMenu}
+              className={`${styles.menuIcon} h-10 w-14 p-2 flex items-center justify-center rounded-full`}
+            >
+              <figure className="flex flex-col justify-center items-start gap-1 size-full">
+                <div className="w-10 h-[0.1rem] bg-white"></div>
+                <div className="w-10 h-[0.1rem] bg-white"></div>
+              </figure>
+            </button>
+          </div>
+        </section>
       </nav>
       {/* OVERLAY */}
       {menuIsOpen && (

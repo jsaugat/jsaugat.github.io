@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./styles.module.scss";
-import { gsap } from "gsap";
-import SplitType from "split-type";
 
 const HackedAnimation: React.FC<{ value: string; bgAnimation: boolean }> = ({
   value,
@@ -13,7 +11,7 @@ const HackedAnimation: React.FC<{ value: string; bgAnimation: boolean }> = ({
 
   useEffect(() => {
     const handleMouseOver = () => {
-      clearInterval(intervalRef.current);
+      // clearInterval(intervalRef.current);
       let iteration = 0;
       intervalRef.current = setInterval(() => {
         setText((prevText) =>
@@ -39,26 +37,6 @@ const HackedAnimation: React.FC<{ value: string; bgAnimation: boolean }> = ({
     const element = document.getElementById(`hacked-animation-${value}`);
     if (element) {
       element.addEventListener("mouseover", handleMouseOver);
-
-      // GSAP Animation
-      const splitTypes = document.querySelectorAll<HTMLElement>(
-        `#hacked-animation-${value}`
-      );
-      splitTypes.forEach((char, i) => {
-        const textSplit = new SplitType(char, { types: "chars" });
-
-        gsap.from(textSplit.chars, {
-          scrollTrigger: {
-            trigger: char,
-            start: "top 80%",
-            end: "top 30%",
-            scrub: true,
-            markers: false,
-          },
-          opacity: 0.2,
-          stagger: 0.1,
-        });
-      });
 
       return () => {
         clearInterval(intervalRef.current);

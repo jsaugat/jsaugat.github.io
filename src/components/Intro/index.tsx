@@ -16,10 +16,10 @@ gsap.defaults({ ease: "power3.in" });
 
 const Intro = () => {
   useGSAP(() => {
-    const splitTypes = gsap.utils.toArray<HTMLElement>(".left-intro");
-    const panels = gsap.utils.toArray<HTMLElement>(".panel");
+    const leftIntro = gsap.utils.toArray<HTMLElement>(".left-intro");
+    // const panels = gsap.utils.toArray<HTMLElement>(".panel");
 
-    splitTypes.forEach((char, i) => {
+    leftIntro.forEach((char, i) => {
       const text = new SplitType(char, { types: "chars" });
       gsap.from(text.chars, {
         scrollTrigger: {
@@ -159,10 +159,10 @@ const AboutButton = () => {
   };
 
   return (
-    <main
+    <button
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
-      className={`${styles.aboutBtn} aboutBtn relative group h-10 w-40 py-2 font-medium border rounded-full border-white/50 hover:bg-white hover:text-black overflow-hidden flex justify-end items-center`}
+      className={`${styles.aboutBtn} aboutBtn relative group h-10 w-40 py-2 font-medium border rounded-full border-white/50 hover:bg-white/95 hover:text-black overflow-hidden flex justify-end items-center`}
     >
       <section className={`${styles.aboutContent} absolute w-fit h-full inline-flex items-center justify-center pointer-events-none`}>
         <div className="w-40 flex justify-center items-center">
@@ -172,7 +172,7 @@ const AboutButton = () => {
           ABOUT ME
         </div>
       </section>
-    </main>
+    </button>
   );
 };
 

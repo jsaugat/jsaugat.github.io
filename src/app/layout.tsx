@@ -59,7 +59,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${IBMPlexMono.variable} ${neueRegrade.variable}`}
+      className={`dark ${IBMPlexMono.variable} ${neueRegrade.variable} font-neueHaas`}
     >
       <head></head>
       <body>

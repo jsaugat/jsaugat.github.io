@@ -6,7 +6,6 @@
 @tailwind utilities;
 
 body {
-  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
   overflow-x: hidden;
 }
 
@@ -108,7 +107,7 @@ body {
 
 /* Show Navbar on scroll up */
 .header {
-  transition: all .5s ease;
+  transition: all .3s ease;
 }
 
 .scroll-down {
