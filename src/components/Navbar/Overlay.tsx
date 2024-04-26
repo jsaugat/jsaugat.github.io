@@ -4,17 +4,18 @@ import React from "react";
 import styles from "./styles.module.scss";
 import HackedAnimation from "../HackedAnimation/HackedAnimation";
 
-interface MenuLink {
-  label: string;
-  href: string;
-}
+const menuLinks = [
+  { href: "/", label: "Home", index: "001" },
+  { href: "/projects", label: "Projects", index: "002" },
+  { href: "/about", label: "About", index: "003" },
+  { href: "/gallery", label: "Gallery", index: "004" },
+];
 
 interface OverlayProps {
   toggleMenu: () => void;
-  menuLinks: MenuLink[];
 }
 
-const NavOverlay: React.FC<OverlayProps> = ({ toggleMenu, menuLinks }) => {
+const NavOverlay: React.FC<OverlayProps> = ({ toggleMenu }) => {
   const socialLinks = [
     { href: "https://twitter.com/jsaugat_", media: "Twitter" },
     { href: "https://www.instagram.com/pyxelpainter", media: "Instagram" },
@@ -54,18 +55,22 @@ const NavOverlay: React.FC<OverlayProps> = ({ toggleMenu, menuLinks }) => {
                 {menuLinks.map((link, idx) => (
                   <div className="menu-item mb-2">
                     <div className="menu-item-holder">
-                      <Link
-                        key={idx}
-                        href={link.href}
-                        // className=""
-                      >
+                      <Link key={idx} href={link.href}>
                         <li
-                          className={`w-fit overflow-hidden font-neueRegrade font-bold text-5xl px-2 pt-2 uppercase ${
+                          className={`${
+                            styles.menuItem
+                          } relative w-fit font-neueRegrade font-bold text-5xl px-2 pt-2 pr-3 rounded-sm uppercase ${
                             pathname === link.href
                               ? "bg-grin text-black"
                               : "hover:bg-white hover:text-black"
                           }`}
                         >
+                          <div
+                            className={`${styles.menuItemPageNumber} text-white text-xs font-ibmPlexMono font-light inline-flex flex-col items-center`}
+                          >
+                            <span>PAGE</span>
+                            <span>{link.index}</span>
+                          </div>
                           <HackedAnimation
                             value={link.label}
                             bgAnimation={false}
@@ -85,14 +90,14 @@ const NavOverlay: React.FC<OverlayProps> = ({ toggleMenu, menuLinks }) => {
             <SectionTitle title="Connect" />
             {/* Connect Info */}
             <section className="menu-info w-full flex flex-col gap-3">
-              {/* Social Links */}
+              {/* SOCIAL LINKS */}
               <div className="menu-info-col font-ibmPlexMono font-light text-sm uppercase flex flex-col items-start">
                 {socialLinks.map(({ href, media }, idx) => (
                   <Link
                     key={idx}
                     href={href}
                     target="_blank"
-                    className="text-xs p-3 py-1 cursor-alias rounded-full flex items-center gap-5"
+                    className="text-[.8rem] p-3 py-1 cursor-alias rounded-full flex items-center gap-5"
                   >
                     <HackedAnimation value={media} bgAnimation={true} />
                   </Link>
@@ -118,7 +123,9 @@ const NavOverlay: React.FC<OverlayProps> = ({ toggleMenu, menuLinks }) => {
           </section>
           <section className="border-t pt-6 px-6 pb-8 flex gap-12 items-start">
             <SectionTitle title="PORTFOLIO" />
-            <span className="font-ibmPlexMono font-light text-[0.65rem] text-white/60">&copy;2024</span>
+            <span className="font-ibmPlexMono font-light text-[0.65rem] text-white/60">
+              &copy;2024
+            </span>
           </section>
         </main>
       </main>

@@ -106,18 +106,18 @@ body {
 }
 
 /* Show Navbar on scroll up */
-.header {
-  transition: all .3s ease;
+.header:not(:has(> .headerOverlay)) {
+  transition: all 0.3s ease;
 }
 
 .scroll-down {
-  .header {
+  .header:not(:has( .headerOverlay)) {
     opacity: 0;
   }
 }
 
 .scroll-up {
-  .header {
+  .header:not(:has(> .headerOverlay)) {
     opacity: 1;
   }
 }

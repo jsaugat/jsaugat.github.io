@@ -9,14 +9,9 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 // css
 import styles from "./styles.module.scss";
-import NavOverlay from "./NavOverlay";
+import NavOverlay from "./Overlay";
 import DownArrowBall from "../assets/DownArrowBall";
-
-const menuLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-];
+import { ArrowRight, ChevronsRight } from "lucide-react";
 
 export default function Navbar() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -85,10 +80,10 @@ export default function Navbar() {
           {/* My Logo */}
           <SAU className="SAU" />
           {/* Saugat Joshi */}
-          <section className="flex flex-col cursor-pointer leading-tight gap-1">
+          <section className="flex flex-col cursor-pointer leading-tight gap-0">
             <p className="font-medium">Saugat Joshi</p>
             <div className="flex items-center gap-2">
-              <mark className="bg-white size-[0.45rem]" />
+              <mark className="bg-white size-[0.35rem]" />
               <p className="text-white/50 text-[0.8rem] font-ibmPlexMono font-light uppercase">
                 Available for collab
               </p>
@@ -99,17 +94,27 @@ export default function Navbar() {
           {/* PROJECTS button */}
           <Button
             variant="outlineStatic"
-            className="projects-btn ml-10 p-1 pr-4 overflow-hidden rounded-full text-base flex justify-center gap-3"
+            className={`${styles.projectsBtn} ml-10 p-1 pr-4 text-base hover:border-white/30 overflow-visible rounded-full flex justify-center gap-3`}
           >
-            <DownArrowBall className="projects-btn-ball" />
+            <mark
+              className={`${styles.projectsBall} relative h-8 w-8 rounded-full bg-transparent border overflow-hidden flex justify-end items-center"`}
+            >
+              <section
+                className={`${styles.projectsArrowsContainer} absolute h-full w-fit flex items-center justify-center`}
+              >
+                <div className="h-full w-8 flex items-center justify-center">
+                  <ArrowRight color="black" strokeWidth={"1.5px"} />
+                </div>
+                <div className="h-full w-8 flex items-center justify-center">
+                  <ArrowRight color="white" strokeWidth={"1.5px"} />
+                </div>
+              </section>
+            </mark>
             <p className="projects-btn-text font-ibmPlexMono font-light tracking-normal">
               PROJECTS
             </p>
           </Button>
           <div className="flex items-center gap-2">
-            {/* <h3 onClick={toggleMenu} className="cursor-pointer font-ibmPlexMono">
-              MENU
-            </h3> */}
             {/* Hamburger */}
             <button
               onClick={toggleMenu}
@@ -124,9 +129,11 @@ export default function Navbar() {
         </section>
       </nav>
       {/* OVERLAY */}
-      {menuIsOpen && (
-        <NavOverlay toggleMenu={toggleMenu} menuLinks={menuLinks} />
-      )}
+      <div className="headerOverlay">
+        {menuIsOpen && (
+          <NavOverlay toggleMenu={toggleMenu} />
+        )}
+      </div>
     </header>
   );
 }

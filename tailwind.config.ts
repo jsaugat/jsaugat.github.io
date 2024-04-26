@@ -27,7 +27,7 @@ const config = {
         ibmPlexMono: ['var(--font-ibm-plex-mono)', "JetBrains Mono"]
       },
       colors: {
-        grin: "#95FF00",
+        grin: "#C0FB50",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -1,3 +1,18 @@
+// Projects Btn
+.projectsBtn:hover {
+  .projectsBall {
+    transition: all 0.3s ease-in-out;
+    border-color: white;
+    background-color: white;
+
+    .projectsArrowsContainer {
+      transition: all 0.3s ease-in-out;
+      transform: translateX(32px);
+    }
+  }
+}
+
+/* Menu */
 .menuIcon {
   div {
     transition: width 0.3s ease-out;
@@ -14,6 +29,8 @@
   }
 }
 
+
+/* Navigation Overlay */
 .close-icon {
   flex: 2;
   display: flex;
@@ -23,4 +40,15 @@
 
 .menuItems {
   font-size: 20rem;
+}
+
+.menuItem {
+  clip-path: polygon(100% 0, 100% 78%, 92% 100%, 0% 100%, 0 57%, 0% 0%);
+}
+
+.menuItemPageNumber {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  right: -3rem;
 }

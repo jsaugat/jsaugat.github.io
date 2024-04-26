@@ -17,7 +17,7 @@ export default function DeveloperSection() {
       </section>
       {/* //? side box */}
       <aside className="relative text-left flex items-center flex-1">
-        <section className="description absolute -left-32 text-lg font-neueHaas font-medium leading-tight tracking-normal flex flex-col">
+        <section className="description absolute -left-[8.4rem] text-lg font-neueHaas font-medium leading-tight tracking-normal flex flex-col">
           {/* lines animate-in from 'y: 30' */}
           <div>
             {[
